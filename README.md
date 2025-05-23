@@ -1,89 +1,89 @@
-# GPU-NSGA2-Julia-Fractals
 
-> A GPU-accelerated multi-objective evolutionary framework for generating high-complexity Julia-set fractals using NSGA-II. Developed in Python, built for Google Colab, and powered by DEAP, NumPy, and optionally CuPy for GPU execution.
 
----
+# 🔮 GPU-NSGA2-Julia-Fractals
 
-## 🔥 Overview
-
-This project implements an evolutionary generator for Julia-set fractals optimized across **three competing objectives**:
-- **Image Entropy** (visual complexity)
-- **Image Contrast** (perceptual sharpness)
-- **Computation Time** (runtime performance)
-
-It uses the **NSGA-II** algorithm to evolve fractal configurations (complex constant + zoom factor), evaluates their fitness in real time, and visualizes the Pareto fronts of optimal trade-offs. Final results include:
-- Ranked and saved top 20 fractals
-- Composite image grid of best outputs
-- Excel export of fitness data
-- Normalized Pareto front plots and convergence analysis
+> A GPU-accelerated, multi-objective evolutionary framework for generating high-complexity Julia-set fractals using NSGA-II. Built for Google Colab with DEAP, NumPy, and optional CuPy acceleration.
 
 ---
 
-## 📍 Scenarios
+## 🚀 Overview
 
-Three built-in experimental setups:
+This project implements an **evolutionary generator for Julia-set fractals** optimized across **three competing objectives**:
 
-| Scenario | Purpose              | Description                                      |
-|----------|----------------------|--------------------------------------------------|
-| `S1`     | Broad Exploration    | High mutation, large offspring                   |
-| `S2`     | Rapid Convergence    | High crossover, elite preservation              |
-| `S3`     | Compute-Aware Search | Balanced setup, zoom constrained for speed       |
+* 🧠 **Image Entropy** (maximize visual complexity)
+* 🌈 **Image Contrast** (maximize perceptual sharpness)
+* ⏱️ **Computation Time** (minimize rendering cost)
 
-Select one by setting:
+Utilizing **NSGA-II** from the DEAP library, it evolves fractal configurations (complex constant and zoom level) to explore Pareto-optimal sets in real-time. Results include:
 
-```python
-scenario = "S3"  # Options: "S1", "S2", "S3"
+* Ranked top-20 fractals saved as images
+* Excel exports of generation-wise fitness data
+* Composite 5×4 grid of elite images
+* Interactive plots of Pareto fronts and convergence
 
-Or define your own parameter config.
-You can also tweak the math in generate_julia() to evolve entirely new fractal forms or formulae (e.g., z³ + c, orbit traps, etc.).
-Outputs
-After running, the following will be generated:
+---
 
-results/evolution_results.xlsx – fitness data
+## 🔍 Experimental Scenarios
 
-results/spread_metrics.txt – spread scores for Pareto front diversity
+| Scenario | Purpose              | Description                                              |
+| -------- | -------------------- | -------------------------------------------------------- |
+| 1        | Entropy Optimization | Prioritize complex visual patterns                       |
+| 2        | Contrast vs Time     | Balance between clarity and runtime                      |
+| 3        | Full Multi-objective | Explore all three objectives in a Pareto front formation |
 
-best_fractals/ – PNGs of top 20 evolved Julia sets
+---
 
-results/combined_best_fractals.png – a 5×4 collage of best images
+## ⚙️ Requirements
 
-results/normalized_pareto_*.png – visualized trade-offs
+* Google Colab (recommended)
+* Python 3.11
+* DEAP, NumPy, Matplotlib, Pandas
+* CuPy (optional, for GPU speedup)
 
-results/convergence_over_generations.png – average progression of objectives
+Install dependencies (if running locally):
 
-Post-Processing & Analysis
-This codebase includes a post-run module for analysis:
+```bash
+pip install deap numpy pandas matplotlib
+# Optional:
+pip install cupy
+```
 
-Normalized Pareto plots:
+---
 
-Time vs Entropy
+## 📁 Output Structure
 
-Contrast vs Entropy
+* `results/`
 
-Spread Metric:
+  * `top20/` – Best 20 fractal images
+  * `grid_top20.png` – Final composite image (5x4 layout)
+  * `evolution_results.xlsx` – Fitness + metadata (generation, scores)
+  * `pareto_fronts/` – Normalized Pareto plots per objective
 
-Measures diversity of Pareto front solutions
+---
 
-Convergence Plot:
+## 📈 Usage
 
-Visualizes per-generation changes in entropy, contrast, and compute time
+1. Run `fractals.ipynb` in Google Colab
+2. Select the scenario and set hyperparameters
+3. Monitor live evolution plots
+4. Download your best-ranked fractals
 
-These help you quantitatively compare different strategies (S1, S2, S3) or your own custom settings.
+---
 
+## 🧠 Citation
 
-Requirements
-Install locally with:
+If you use this project in your work, please cite:
 
-bash
-Copy
-Edit
-pip install deap numpy matplotlib pandas pillow scikit-learn
-# Optional GPU
-pip install cupy-cuda11x
+```
+Ziadeh, M. (2025). GPU-NSGA2-Julia-Fractals: Multi-objective Evolution of Visual Complexity. https://github.com/MazharZiadeh/gpu-nsga2-julia-fractals
+```
 
+---
 
-Author
-Mazhar Ziadeh
-Kadir Has University – Evolutionary Algorithms (Undergraduate Project)
+## 🧬 Credits
 
-For shaders, fractals, optimization, and procedural dreams.
+* **Mazhar Ziadeh** – Evolutionary algorithm design, fractal rendering engine, NSGA-II tuning
+* Inspired by \[Saupe & Ruhl, 1996] on evolutionary fractal compression
+
+---
+
