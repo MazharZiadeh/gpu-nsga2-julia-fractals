@@ -11,7 +11,7 @@
 This project implements a sophisticated **evolutionary generator for Julia-set fractals** optimized across **three competing objectives**:
 
 * 🧠 **Image Entropy** (maximize visual complexity)
-* 🌈 **Image Contrast** (maximize perceptual sharpness)  
+* 🌈 **Image Contrast** (maximize perceptual sharpness)
 * ⏱️ **Computation Time** (minimize rendering cost)
 
 Utilizing **NSGA-II** from the DEAP library, it evolves fractal configurations (complex constant and zoom level) to explore Pareto-optimal sets with professional-grade visualization and analysis tools.
@@ -154,7 +154,7 @@ The project follows a clean, modular architecture:
 The system optimizes three competing objectives:
 
 1. **Image Entropy**: Measures visual complexity using Shannon entropy of escape time distribution
-2. **Image Contrast**: Quantifies perceptual sharpness using standard deviation of normalized values  
+2. **Image Contrast**: Quantifies perceptual sharpness using standard deviation of normalized values
 3. **Computation Time**: Tracks rendering performance for efficiency
 
 ### NSGA-II Implementation
@@ -191,7 +191,7 @@ Edit `config.py` to modify:
 @dataclass
 class EvolutionParams:
     mu: int = 50          # Population size
-    lambda_: int = 50     # Offspring size  
+    lambda_: int = 50     # Offspring size
     cxpb: float = 0.7     # Crossover probability
     mutpb: float = 0.2    # Mutation probability
     ngen: int = 20        # Number of generations

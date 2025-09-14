@@ -39,12 +39,12 @@ class Config:
     evolution: EvolutionParams = None
     fractal: FractalParams = None
     render: RenderParams = None
-    
+
     # Output directories
     results_dir: str = "results"
     top20_dir: str = "results/top20"
     pareto_dir: str = "results/pareto_fronts"
-    
+
     def __post_init__(self):
         """Initialize default values if None."""
         if self.evolution is None:
@@ -53,7 +53,7 @@ class Config:
             self.fractal = FractalParams()
         if self.render is None:
             self.render = RenderParams()
-        
+
         # Create output directories if they don't exist
         os.makedirs(self.results_dir, exist_ok=True)
         os.makedirs(self.top20_dir, exist_ok=True)
